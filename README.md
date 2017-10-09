@@ -1,5 +1,5 @@
 # CheckedIn
-A Burger Eatin' Application With Node.js/Express/MySQL/Handlebars/Materialize
+A check in application With Node.js/Express/MySQL/Handlebars/Materialize
 
 ## Description
 
