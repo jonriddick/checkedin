@@ -1,0 +1,25 @@
+{
+  "name": "checkedin",
+  "version": "1.0.0",
+  "description": "a social check in app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonriddick/checkedin.git"
+  },
+  "author": "Jon Riddick, Steve Murphy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonriddick/checkedin/issues"
+  },
+  "homepage": "https://github.com/jonriddick/checkedin#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.14.1"
+  }
+}
