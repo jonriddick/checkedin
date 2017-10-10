@@ -1,16 +1,38 @@
-#eventName {
+#eventCheckins, #eventName{
+    background-color: orange;
+    width: 50%;
+    min-width: 400px;
+    text-align: center;
+}
+
+.container:before{
+    display: none;
+}
+
+input {
     margin-bottom: 10px;
 }
 
 #submit {
     margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#chkbtncont{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#neweventcont{
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .container{
-    text-align: center;
     background-color: #E8E8E8;
     width: 75%;
     min-width: 400px;
@@ -24,6 +46,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+#aboutUs{
+    text-align: left;
 }
 
 #names{
@@ -41,11 +67,35 @@ hr {
     border-color: black;
 }
 
- {
+.btn{
+    margin-top: 25px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.footer{
+    font-size: 12px;
+    /*color: #F8E9B0;*/
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #E8E8E8;
+    margin: 0px;
+    margin-top: 20px;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+}
+
+ /*{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; 
-}
+}*/
 
 
 /****************************************************************************
@@ -82,21 +132,7 @@ body {
     margin: 0;
     padding: 0; 
 }*/
-.footer{
-    font-size: 12px;
-    /*color: #F8E9B0;*/
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    /*background-color: #6F461A;*/
-    margin: 0px;
-    margin-top: 20px;
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-}
+
 .footer-info{
     width: 60%;
     display: flex;
@@ -141,13 +177,6 @@ body {
 
 .create-btn {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-.btn{
-    margin: 50px;
-    width: 200px;
     display: flex;
     justify-content: center;
     margin: auto;
