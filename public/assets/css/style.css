@@ -1,6 +1,51 @@
+#eventName {
+    margin-bottom: 10px;
+}
 
+#submit {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
+.container{
+    text-align: center;
+    background-color: #E8E8E8;
+    width: 75%;
+    min-width: 400px;
+}
 
+.aboutContainer{
+    text-align: center;
+    /*background-color: lightgrey;*/
+    /*width: 75%;*/
+    min-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#names{
+
+}
+
+#ourPics{
+    float: left;
+    margin: 0 10px 10px 10px;
+    width: 100px;
+
+}
+
+hr {
+    border-color: black;
+}
+
+ {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+}
 
 
 /****************************************************************************
@@ -57,12 +102,7 @@ body {
     display: flex;
     justify-content: space-around;
 }
-.container{
-    text-align: center;
-    background-color: lightgrey;
-    width: 40%;
-    min-width: 400px;
-}
+
 .description{
     margin-right: 5px;
     margin-left: 2px;

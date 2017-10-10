@@ -29,7 +29,7 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "Sundrop7@",
     database: "checkedin_db"
   });
 };
@@ -45,14 +45,22 @@ connection.connect(function(err) {
 
 
 // Serve index.handlebars to the root route.
-app.get("/", function(req, res) {
-  
+app.get("/index", function(req, res) {
+  res.render("index", { });
+});
+
+// Serve about.handlebars to the root route.
+app.get("/about", function(req, res) {
+  res.render("about", { });
 });
 
 
+// app.post("/checkin", function(req, res) {
+//   res.render("index", { });
+// });
 
-app.post("/burgers", function(req, res) {
-  
+app.get("/event", function(req, res) {
+  res.render("event", { });
 });
 
 
