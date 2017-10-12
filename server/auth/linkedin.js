@@ -1,23 +1,8 @@
 var passport = require('passport');
-var LinkedInStrategy = require('passport-linkedin').Strategy;
+var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 
 var User = require('../models/');
 var config = require('../config');
-
-// Passport session setup.
-//   To support persistent login sessions, Passport needs to be able to
-//   serialize users into and deserialize users out of the session.  Typically,
-//   this will be as simple as storing the user ID when serializing, and finding
-//   the user by ID when deserializing.  However, since this example does not
-//   have a database of user records, the complete LinkedIn profile is
-//   serialized and deserialized.
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
 
 // Use the LinkedInStrategy within Passport.
 //   Strategies in passport require a `verify` function, which accept
@@ -29,10 +14,10 @@ passport.use(new LinkedInStrategy({
     callbackURL: config.linkedin.callbackURL,
     scope: ['r_emailaddress', 'r_basicprofile', 'rw_nus'],
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'public-profile-url', 'picture-url'],
-    passReqToCallback: true
+    state: true
   },
   // linkedin sends back the tokens and profile info
-  function(token, tokenSecret, profile, done) {
+  function(accessToken, refreshToken, profile, done) {
 
     process.nextTick(function() {
       console.log(profile);
@@ -41,17 +26,7 @@ passport.use(new LinkedInStrategy({
   }
 ));
 
-app.get('/index', function(req, res) {
-  res.render('index', { user: req.user });
-});
 
-app.get('/account', ensureAuthenticated, function(req, res) {
-  res.render('account', { user: req.user });
-});
-
-app.getz('login', function(req, res) {
-  res.render('login', { user: req.user });
-});
 
 // GET /auth/linkedin
 //   Use passport.authenticate() as route middleware to authenticate the
@@ -70,16 +45,28 @@ app.get('/auth/linkedin',
 //   request.  If authentication fails, the user will be redirected back to the
 //   login page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the home page.
-app.get('/auth/linkedin/callback',
-  passport.authenticate('linkedin', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/');
+app.get('/auth/linkedin/callback', passport.authenticate('linkedin'), {
+  successRedirect: '/index',
+  failureRedirect: '/login'
   });
 
-app.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/index');
-})
+
+// app.get('/logout', function(req, res) {
+//   req.logout();
+//   res.redirect('/index');
+// })
+
+// app.get('/index', function(req, res) {
+//   res.render('index', { user: req.user });
+// });
+
+// app.get('/account', ensureAuthenticated, function(req, res) {
+//   res.render('account', { user: req.user });
+// });
+
+// app.get('login', function(req, res) {
+//   res.render('login', { user: req.user });
+// });
 
 
   
