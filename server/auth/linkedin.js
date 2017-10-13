@@ -12,7 +12,7 @@ passport.use(new LinkedInStrategy({
     consumerKey: config.linkedin.clientID,
     consumerSecret: config.linkedin.clientSecret,
     callbackURL: config.linkedin.callbackURL,
-    scope: ['r_emailaddress', 'r_basicprofile', 'rw_nus'],
+    scope: ['r_emailaddress', 'r_basicprofile'],
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'public-profile-url', 'picture-url'],
     state: true
   },
@@ -51,22 +51,6 @@ app.get('/auth/linkedin/callback', passport.authenticate('linkedin'), {
   });
 
 
-// app.get('/logout', function(req, res) {
-//   req.logout();
-//   res.redirect('/index');
-// })
-
-// app.get('/index', function(req, res) {
-//   res.render('index', { user: req.user });
-// });
-
-// app.get('/account', ensureAuthenticated, function(req, res) {
-//   res.render('account', { user: req.user });
-// });
-
-// app.get('login', function(req, res) {
-//   res.render('login', { user: req.user });
-// });
 
 
   
