@@ -27,11 +27,31 @@ require("./routes/api-routes.js")(app);
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+var passport = require("passport");
+var session = require("express-session");
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 var mysql = require("mysql");
 
 //Needs password
 //var connection;
 
+
+// if (process.env.JAWSDB_URL) {
+//   connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+//   connection = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "root",
+//     database: "checkedin_db"
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
