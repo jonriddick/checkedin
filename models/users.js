@@ -1,0 +1,51 @@
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define("User", {
+    linkedin_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    picture: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    }
+  });
+
+  User.associate = function(models) {
+    // We're saying that a User should belong to an Author
+    // A User can't be created without an Author due to the foreign key constraint
+    User.belongsTo(models.Event, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  return User;
+};
