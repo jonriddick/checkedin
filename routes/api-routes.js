@@ -14,7 +14,10 @@ module.exports = function(app) {
 
 	// GET route for getting all of the users
   app.get("/api/users", function(req, res) {
-    res.json(users);
+  	db.User.findAll({})
+  	.then(function(dbUser){
+  	res.json(dbUser);
+  	});    
   });
 
   // POST route for saving a new user
