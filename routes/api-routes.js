@@ -1,6 +1,7 @@
 // var events = require("../public/assets/js/events.js");
 // var users = require("../public/assets/js/users.js");
 var db = require("../models");
+var Event = require("../models/events.js");
 
 module.exports = function(app) {
 
@@ -19,6 +20,43 @@ module.exports = function(app) {
   	res.json(dbUser);
   	});    
   });
+
+//
+//
+//
+
+// Search for Specific event (or all characters) then provides JSON
+  app.get("/api/events/host/:host?", function(req, res) {
+
+    // If the user provides a specific character in the URL...
+    if (req.params.host) {
+
+      // Then display the JSON for ONLY that character.
+      // (Note how we're using the ORM here to run our searches)
+      db.Event.findOne({
+        where: {
+          event_host: req.params.host
+        }
+      }).then(function(result) {
+        return res.json(result);
+      });
+    }
+
+    // Otherwise...
+    else {
+      // Otherwise display the data for all of the characters.
+      // (Note how we're using Sequelize here to run our searches)
+      db.Event.findAll({})
+        .then(function(result) {
+          return res.json(result);
+        });
+    }
+
+  });
+
+//
+//
+//
 
   // POST route for saving a new user
   app.post("/api/users", function(req, res) {

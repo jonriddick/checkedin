@@ -33,7 +33,8 @@ module.exports = function(app) {
 	// });
 
 	app.get("/event", function(req, res) {
-	  res.render("event", { });
+		
+	  res.render("event", {eventName});
 	});
 
 	// app.get("/api/*", function(req, res) {
