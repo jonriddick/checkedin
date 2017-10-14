@@ -20,7 +20,45 @@ $(document).ready(function() {
 		};
 		$.post("/api/events", newEvent, getEvents);
 		$("#inputHost").val("");
+		$("#inputLocation").val("");
+		$("#inputName").val("");
+		$("#inputDescription").val("");
+		$("#inputKeyword1").val("");
+		$("#inputKeyword2").val("");
+		$("#inputKeyword3").val("");
+		window,location.url = result.eventUrlName
 	}
+
+	// function getUsers(){
+	// 	$.get("/api/users", function(data){
+	// 		events = data;
+	// 	});
+	// }
+
+	// function insertUser(event){
+	// 	event.preventDefault();
+	// 	var newUser = {
+	// 		linkedin_id: ${req.body.user._json.id}.trim(),
+	// 		first_name: ${req.body.user._json.name.firstName}.trim(),
+	// 		last_name: ${req.body.user._json.name.lastName}.trim(),
+	// 		picture: ${req.body.user._json.pictureUrl}.trim(),
+	// 		email: ${req.body.user._json.emailAddress}.trim()   
+	// 	};
+
+
+	// 	$.post("/api/events", newUser, getEvents);
+	// 	// $("#inputHost").val("");
+	// 	// $("#inputLocation").val("");
+	// 	// $("#inputName").val("");
+	// 	// $("#inputDescription").val("");
+	// 	// $("#inputKeyword1").val("");
+	// 	// $("#inputKeyword2").val("");
+	// 	// $("#inputKeyword3").val("");
+	// }
+	// function newURL(req, res){
+	// 	res.redirect("event");
+	// }
+	// newURL();
 });
 
 	// $("#submit").on("submit", function (event) {

@@ -41,16 +41,10 @@ module.exports = function(sequelize, DataTypes) {
     event_keyword2: {
       type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        len: [1]
-      }
     },
     event_keyword3: {
       type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        len: [1]
-      }
     }
   });
 

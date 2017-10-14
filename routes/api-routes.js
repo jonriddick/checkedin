@@ -65,8 +65,13 @@ module.exports = function(app) {
     });
   });
 
+
+function sanitize(event_name) {
+  return // sanitized event name
+}
   // POST route for saving a new event
   app.post("/api/events", function(req, res) {
+    var event_name_sanitize = sanitize(req.body.event_name)
     db.Event.create(req.body
     	// event_host: req.body.event_host,
     	// event_location: req.body.event_location,
