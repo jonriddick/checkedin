@@ -1,10 +1,9 @@
-<div class="placeHolder container" id="eventName">Event Name goes here.(Placeholder Text){{eventName}}
+<div class="placeHolder container" id="eventName">Event Name goes here.(Placeholder Text){{event_name}}
 </div>
 <div id="chkbtncont" class="container">
     
 <!-- CheckIn Button -->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit2">Get CheckedIn Buttton</button>
-    <a href="/auth/linkedin" target="_blank">link</a>
+    <a class="btn btn-primary btn-lg btn-block" href="/auth/linkedin" id="submit2">Get CheckedIn Buttton</a>
 
 </div>
 
@@ -12,38 +11,4 @@
 <div class="container" id="eventCheckins">Checkins go here.(Placeholder Text)
 </div>
 
-<!-- Modal -->
-    <div id="resultsModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title"><strong>Enter your info to CheckIn</strong></h2>
-          </div>
-          <div class="modal-body">
-            <h3><strong>About You</strong></h3>
-            <h4>Name (Required)</h4>
-            <input type="text" name="" id="name" class="form-control" required >
-
-            {{!-- <h4>Link to Photo Image (Required)</h4>
-            <input type="text" name="" id="photo" class="form-control" required > --}}
-
-            <h4>LinkedIn Profile Link (Required)</h4>
-            <input type="text" name="" id="linkedin" class="form-control" required >
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-<script type="text/javascript">
-$("#submit").on("click", function(){
-    $("#resultsModal").modal('toggle');
-});
-</script>

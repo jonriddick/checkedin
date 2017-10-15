@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Sundrop7@",
+    "password": "root",
     "database": "checkedin_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
