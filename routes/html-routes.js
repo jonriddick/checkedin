@@ -36,7 +36,10 @@ module.exports = function(app) {
 	//   res.render("index", { });
 	// });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7231beb4d515a90392eef3122e58551f0e98f2c1
 	app.get("/event", function(req, res) {
 		
 	  res.render("event", {eventName});
@@ -47,6 +50,10 @@ module.exports = function(app) {
 	         res.render("event", { event: event });		
 		})
 	});
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7231beb4d515a90392eef3122e58551f0e98f2c1
 
 	// app.get("/api/*", function(req, res) {
 	//     res.render("index", { });
