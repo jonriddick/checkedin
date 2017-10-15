@@ -41,11 +41,11 @@ module.exports = function(app) {
 	  res.render("event", {eventName});
         });
 
-	app.get("/event/:eventName", function(req, res) {
-		db.Event.get(where: { event_name_sanitized: req.params.eventName }).then(function(event){
-	         res.render("event", { event: event });		
-		})
-	});
+	// app.get("/event/:eventName", function(req, res) {
+	// 	db.Event.get(where: { event_name_sanitized: req.params.eventName }).then(function(event){
+	//          res.render("event", { event: event });		
+	// 	})
+	// });
 
 
 	// app.get("/api/*", function(req, res) {
