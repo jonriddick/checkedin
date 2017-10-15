@@ -28,6 +28,10 @@ module.exports = function(app) {
 	});
 
 
+	app.get("/event", function(req, res) {
+	  res.render("event", { });
+	});
+
 	// app.post("/checkin", function(req, res) {
 	//   res.render("index", { });
 	// });
@@ -42,6 +46,7 @@ module.exports = function(app) {
 	         res.render("event", { event: event });		
 		})
 	});
+
 
 	// app.get("/api/*", function(req, res) {
 	//     res.render("index", { });
