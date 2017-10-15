@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var db = require("../models")
 
 // Routes
 // =============================================================
@@ -42,14 +43,42 @@ module.exports = function(app) {
 	  res.render("event", {eventName});
         });
 
-	// app.get("/event/:eventName", function(req, res) {
-	// 	db.Event.get(where: { event_name_sanitized: req.params.eventName }).then(function(event){
-	//          res.render("event", { event: event });		
-	// 	})
-	// });
+	var eventInfo = function(req, res) {
+		db.Event.findOne({
+			where: {
+				sanitized_event_name: req.params.eventName
+			}
+		});
 
+	}
+
+
+	app.get("/event/:eventName", function(req, res) {
+		db.Event.findOne({
+			where: {
+				sanitized_event_name: req.params.eventName
+			}
+		}).then(function(event){
+	         res.render("event", { event: eventInfo });		
+		});
+	});
+
+
+	
 
 	// app.get("/api/*", function(req, res) {
 	//     res.render("index", { });
 	// });
 }
+
+// app.delete("/api/todos/:id", function(req, res) {
+//     // We just have to specify which todo we want to destroy with "where"
+//     db.Todo.destroy({
+//       where: {
+//         id: req.params.id
+//       }
+//     }).then(function(dbTodo) {
+//       res.json(dbTodo);
+//     });
+
+//   });
