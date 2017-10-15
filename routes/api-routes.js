@@ -67,20 +67,23 @@ module.exports = function(app) {
 
 
 function sanitize(event_name) {
-  return // sanitized event name
+  var event_name = event_name.replace(/\s+/g, '');
+  var event_name = event_name.toLowerCase();
+  return event_name;
 }
   // POST route for saving a new event
   app.post("/api/events", function(req, res) {
-    var event_name_sanitize = sanitize(req.body.event_name)
-    db.Event.create(req.body
-    	// event_host: req.body.event_host,
-    	// event_location: req.body.event_location,
-    	// event_name: req.body.event_name,
-    	// event_description: req.body.event_description,
-    	// event_keyword1: req.body.event_keyword1,
-    	// event_keyword2: req.body.event_keyword2,
-    	// event_keyword3: req.body.event_keyword3
-    ).then(function(dbEvent) {
+    var sanitized_event_name = sanitize(req.body.event_name)
+    db.Event.create({
+    	event_host: req.body.event_host,
+    	event_location: req.body.event_location,
+    	event_name: req.body.event_name,
+      sanitized_event_name: sanitized_event_name,
+    	event_description: req.body.event_description,
+    	event_keyword1: req.body.event_keyword1,
+    	event_keyword2: req.body.event_keyword2,
+    	event_keyword3: req.body.event_keyword3
+    }).then(function(dbEvent) {
       res.json(dbEvent);
     });
   });
