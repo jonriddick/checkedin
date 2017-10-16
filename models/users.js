@@ -45,11 +45,12 @@ module.exports = function(sequelize, DataTypes) {
     event_url: {
       type: DataTypes.STRING,
       allowNull: false,
-      // defaultValue: 'default',
+      defaultValue: 'default',
       validate: {
         len: [1]
       }
     }
+    
   });
 
   User.associate = function(models) {

@@ -26,6 +26,11 @@ input {
     margin-top: 20px;
 }
 
+#submit2 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 #chkbtncont{
     width: 50%;
     display: flex;

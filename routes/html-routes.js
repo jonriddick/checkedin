@@ -34,18 +34,18 @@ module.exports = function(app) {
 	});
 
 
-	// app.get("/event", function(req, res) {
-	//   res.render("event", { });
-	// });
+	app.get("/event", function(req, res) {
+	  res.render("event", { });
+	});
 
 	// app.post("/checkin", function(req, res) {
 	//   res.render("index", { });
 	// });
 
 
-	app.get("/event", function(req, res) {
-	  res.render("event", {eventName});
-    });
+	// app.get("/event", function(req, res) {
+	//   res.render("event", {eventName});
+ //    });
 
 	var eventInfo = function(req, res) {
 		db.Event.findOne({
