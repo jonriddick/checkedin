@@ -10,9 +10,6 @@ var PORT = process.env.PORT || 3300;
 
 var db = require("./models");
 
-// var LINKEDIN_CLIENT_ID = "81116weiwd0uze";
-// var LINKEDIN_CLIENT_SECRET = "GtjYCyPFp3b2Vdjm";
-// var CALLBACKURL = "http://127.0.0.1:3300/auth/linkedin/callback";
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.json());
@@ -42,27 +39,6 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-// passport.use(new LinkedInStrategy({
-//     // consumerKey: config.linkedin.clientID,
-//     clientID: "81116weiwd0uze",
-//     // consumerSecret: config.linkedin.clientSecret,
-//     clientSecret: "GtjYCyPFp3b2Vdjm",
-//     // callbackURL: config.linkedin.callbackURL,
-//     callbackURL: "http://127.0.0.1:3300/auth/linkedin/callback",
-//     scope: ['r_emailaddress', 'r_basicprofile'],
-//     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'public-profile-url', 'picture-url'],
-//     // state: true
-//     passReqToCallback: true
-//   },
-//   // linkedin sends back the tokens and profile info
-//   function(req, accessToken, refreshToken, profile, done) {
-//     req.session.accessToken = accessToken;
-//     process.nextTick(function() {
-//       // console.log(profile);
-//       return done(null, profile);
-//     });
-//   }
-// ));
 passport.use(new LinkedInStrategy({
     clientID:     config.LINKEDIN_CLIENT_ID,
     clientSecret: config.LINKEDIN_CLIENT_SECRET,
@@ -100,46 +76,37 @@ require("./routes/linkedin-routes.js")(app, passport);
 
 var mysql = require("mysql");
 
-//Needs password
-//var connection;
+var connection;
 
 
-// if (process.env.JAWSDB_URL) {
-//   connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
-//   connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "root",
-//     database: "checkedin_db"
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "checkedin_db"
+  });
+};
+
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
+
+
+
+
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-
-
-// if (process.env.JAWSDB_URL) {
-//   connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
-//   connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "Sundrop7@",
-//     database: "checkedin_db"
-//   });
-// };
-
-// connection.connect(function(err) {
-//   if (err) {
-//     console.error("error connecting: " + err.stack);
-//     return;
-//   }
-//   console.log("connected as id " + connection.threadId);
-// });
-
-
 
 
 

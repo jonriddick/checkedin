@@ -19,15 +19,19 @@ module.exports = function(app, passport) {
 	  	console.log(req.user.emails[0].value);
 	  	console.log(req.user.photos[0].value);
 	  	console.log(req.user._json.emailAddress);
+	  	console.log(req.user._json.publicProfileUrl)
+	  	console.log(req.headers.referer);
 
 	  	
 	    db.User.create(
 	    	{
 		    	linkedin_id: req.user.id,
+		    	profile_url: req.user._json.publicProfileUrl,
 		    	first_name: req.user.name.givenName,
 		    	last_name: req.user.name.familyName,
 		    	picture: req.user.photos[0].value,
-		    	email: req.user.emails[0].value
+		    	email: req.user.emails[0].value,
+		    	event_url: req.headers.referer
 	   		 }
 
 		).then(function(dbUser) {

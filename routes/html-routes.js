@@ -6,6 +6,7 @@
 // =============================================================
 var path = require("path");
 var db = require("../models")
+// var connection = require()
 
 // Routes
 // =============================================================
@@ -52,16 +53,55 @@ module.exports = function(app) {
 
 	}
 
-
 	app.get("/event/:eventName", function(req, res) {
+		var dbQuery = "SELECT * FROM users";
+
+
 		db.Event.findOne({
 			where: {
 				sanitized_event_name: req.params.eventName
-			}
-		}).then(function(event){
-	         res.render("event", { event: eventInfo });		
+			},
+				include: [db.User]
+		}).then(function(eventData){
+	         res.render("event", { key: eventData });		
 		});
+
+		
 	});
+
+	// app.get("/event/:eventName", function(req, res) {
+	// 	db.Event.findOne({
+	// 		where: {
+	// 			sanitized_event_name: req.params.eventName
+	// 		}
+	// 	}).then(function(event){
+	// 		db.User.findAll({
+	// 			where: {
+	// 				eventId: event.
+	// 			}
+	//          res.render("event", { key: event });		
+	// 	});
+
+		
+	// });
+
+	// app.get("/event/:eventName", function(req, res) {
+	// 	db.Event.findOne({
+	// 		where: {
+	// 			sanitized_event_name: req.params.eventName
+	// 		}
+	// 	}),
+	// 	db.User.findAll({
+	// 			where: {
+	// 				eventId: 1
+	// 			}
+	// 	then(function(data){
+			
+	//          res.render("event", { key: data });		
+	// 	});
+
+		
+	// });
 
 
 	

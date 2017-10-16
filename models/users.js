@@ -7,6 +7,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    profile_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,6 +38,14 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    event_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      // defaultValue: 'default',
       validate: {
         len: [1]
       }
