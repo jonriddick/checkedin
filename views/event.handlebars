@@ -1,4 +1,4 @@
-<div class="placeHolder container" id="eventName">Event Name goes here.(Placeholder Text){{event_name}}
+<div class="placeHolder container" id="eventName">{{key.event_name}}
 </div>
 <div id="chkbtncont" class="container">
     
@@ -9,6 +9,15 @@
 
 
 <div class="container" id="eventCheckins">Checkins go here.(Placeholder Text)
+	<ul>
+	  {{#each guests}}
+	  	<li>
+	  	  <p><span class="label">First Name:</span> {{this.first_name}}</p>
+	      <p><span class="label">Last Name:</span> {{this.last_name}}</p>
+	      <p><span class="label">Picture:</span><img src="{{this.picture}}"></p>
+	  	</li>
+	  {{/each}}
+	</ul>
 </div>
 
 
