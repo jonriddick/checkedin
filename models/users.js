@@ -7,6 +7,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    profile_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
