@@ -29,10 +29,14 @@ module.exports = function(app) {
 	  res.render("about", { });
 	});
 
-
-	app.get("/event", function(req, res) {
-	  res.render("event", { });
+	app.get("/thankyou", function(req, res) {
+	  res.render("thankyou", { });
 	});
+
+
+	// app.get("/event", function(req, res) {
+	//   res.render("event", { });
+	// });
 
 	// app.post("/checkin", function(req, res) {
 	//   res.render("index", { });
@@ -40,9 +44,8 @@ module.exports = function(app) {
 
 
 	app.get("/event", function(req, res) {
-		
 	  res.render("event", {eventName});
-        });
+    });
 
 	var eventInfo = function(req, res) {
 		db.Event.findOne({
