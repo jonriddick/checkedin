@@ -6,6 +6,7 @@
 // =============================================================
 var path = require("path");
 var db = require("../models")
+// var connection = require()
 
 // Routes
 // =============================================================
@@ -53,6 +54,9 @@ module.exports = function(app) {
 	}
 
 	app.get("/event/:eventName", function(req, res) {
+		var dbQuery = "SELECT * FROM users";
+
+
 		db.Event.findOne({
 			where: {
 				sanitized_event_name: req.params.eventName

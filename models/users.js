@@ -45,6 +45,7 @@ module.exports = function(sequelize, DataTypes) {
     event_url: {
       type: DataTypes.STRING,
       allowNull: false,
+      // defaultValue: 'default',
       validate: {
         len: [1]
       }

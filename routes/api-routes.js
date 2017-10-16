@@ -5,13 +5,26 @@ var Event = require("../models/events.js");
 
 module.exports = function(app) {
 
+  
+
 	// GET route for getting all of the events
-	app.get("/api/events", function(req, res) {
-		db.Event.findAll({})
-		.then(function(dbEvent){
-	  res.json(dbEvent);
-		});
-	});
+	// app.get("/api/events", function(req, res) {
+	// 	db.Event.findAll({
+ //      include: [{
+ //        model: users,
+ //        where: { event_url: Sequelize.col('http://127.0.0.1:3300/event/' + 'Event.sanitized_event_name') }
+ //    }]})
+	// 	.then(function(dbEvent){
+	//   res.json(dbEvent);
+	// 	});
+	// });
+    
+  app.get("/api/events", function(req, res) {
+    db.Event.findAll({})
+    .then(function(dbEvent){
+    res.json(dbEvent);
+    });
+  });
 
 	// GET route for getting all of the users
   app.get("/api/users", function(req, res) {
@@ -66,11 +79,11 @@ module.exports = function(app) {
   });
 
 
-function sanitize(event_name) {
-  var event_name = event_name.replace(/\s+/g, '');
-  var event_name = event_name.toLowerCase();
-  return event_name;
-}
+  function sanitize(event_name) {
+    var event_name = event_name.replace(/\s+/g, '');
+    var event_name = event_name.toLowerCase();
+    return event_name;
+  }
   // POST route for saving a new event
   app.post("/api/events", function(req, res) {
     var sanitized_event_name = sanitize(req.body.event_name)
@@ -89,3 +102,8 @@ function sanitize(event_name) {
   });
 
 }
+
+
+
+
+
