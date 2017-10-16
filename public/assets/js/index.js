@@ -1,11 +1,20 @@
 $(document).ready(function() {
 	$(document).on("click", "#submit", insertEvent);
 
-	function getEvents(){
-		$.get("/api/events", function(data){
-			events = data;
-		});
-	}
+	// var newURL = sanitized(event_name)
+
+	// function sanitize(event_name) {
+	//   var event_name = event_name.replace(/\s+/g, '');
+	//   var event_name = event_name.toLowerCase();
+	//   return event_name;
+	// }
+
+
+	// function getEvents(){
+	// 	$.get("/api/events", function(data){
+	// 		events = data;
+	// 	});
+	// }
 
 	function insertEvent(event){
 		event.preventDefault();
@@ -18,15 +27,29 @@ $(document).ready(function() {
 	        event_keyword2: $("#inputKeyword2").val().trim(),
 	        event_keyword3: $("#inputKeyword3").val().trim()
 		};
-		$.post("/api/events", newEvent, getEvents);
-		$("#inputHost").val("");
-		$("#inputLocation").val("");
-		$("#inputName").val("");
-		$("#inputDescription").val("");
-		$("#inputKeyword1").val("");
-		$("#inputKeyword2").val("");
-		$("#inputKeyword3").val("");
-		window,location.url = result.eventUrlName
+		$.post("/api/events", newEvent);
+		// $("#inputHost").val("");
+		// $("#inputLocation").val("");
+		// $("#inputName").val("");
+		// $("#inputDescription").val("");
+		// $("#inputKeyword1").val("");
+		// $("#inputKeyword2").val("");
+		// $("#inputKeyword3").val("");
+		// window.location.url = result.eventUrlName
+		
+		var unsanitized_event_name = $("#inputName").val().trim();
+		// var unsanitized_event_name = "test event";
+
+		function sanitize(event_name) {
+		  var event_name = event_name.replace(/\s+/g, '');
+		  var event_name = event_name.toLowerCase();
+		  console.log(event_name);
+		  return event_name;
+		}
+		var newURL = sanitize(unsanitized_event_name);
+		var finalURL = '/event/' + newURL;
+		console.log(finalURL);
+		window.location.replace(finalURL);
 	}
 
 	// function getUsers(){
