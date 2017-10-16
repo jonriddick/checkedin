@@ -1,5 +1,13 @@
-#eventCheckins, #eventName{
+#eventCheckins {
     background-color: orange;
+    width: 50%;
+    min-width: 400px;
+    text-align: center;
+}
+
+#eventName {
+    background-color: #E8E8E8;
+    font-size: 40px;
     width: 50%;
     min-width: 400px;
     text-align: center;
