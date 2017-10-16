@@ -58,9 +58,7 @@ module.exports = function(sequelize, DataTypes) {
   Event.associate = function(models) {
     // Associating Event with Posts
     // When an Event is deleted, also delete any associated Posts
-    Event.hasMany(models.User, {
-      
-    });
+    Event.hasMany(models.User, {});
   };
 
   return Event;

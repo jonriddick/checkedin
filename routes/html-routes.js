@@ -56,7 +56,8 @@ module.exports = function(app) {
 		db.Event.findOne({
 			where: {
 				sanitized_event_name: req.params.eventName
-			}
+			},
+				include: [db.User]
 		}).then(function(eventData){
 	         res.render("event", { key: eventData });		
 		});
