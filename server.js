@@ -1,5 +1,6 @@
 // Boilerplate code 2-35
 var express = require("express");
+var Sequelize = require('sequelize');
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
