@@ -9,15 +9,21 @@
 
 
 {{!-- <div class="container" id="eventCheckins">Checkins go here.(Placeholder Text) --}}
-	{{!-- <ul>
-	  {{#each guests}}
-	  	<li>
-	  	  <p><span class="label">First Name:</span> {{this.first_name}}</p>
-	      <p><span class="label">Last Name:</span> {{this.last_name}}</p>
-	      <p><span class="label">Picture:</span><img src="{{this.picture}}"></p>
-	  	</li>
-	  {{/each}}
-	</ul> --}}
+	{{!-- <ul> --}}
+	  {{!-- {{#each guests}} --}}
+	  	{{!-- <li> --}}
+		<div class="container" id="eventInfo">
+
+	  	  <p><span class=>Event Host:</span> {{key.event_host}}</p>
+	      <p><span class=>Event Location:</span> {{key.event_location}}</p>
+	      <p><span class=>Event Description:</span> {{key.event_description}}</p>
+	      <p><span class=>Event Keyword1:</span> {{key.event_keyword1}}</p>
+	      <p><span class=>Event Keyword2:</span> {{key.event_keyword2}}</p>
+	      <p><span class=>Event Keyword3:</span> {{key.event_keyword3}}</p>
+	  </div>
+	  	{{!-- </li> --}}
+	  {{!-- {{/each}} --}}
+	{{!-- </ul> --}}
 {{!-- </div> --}}
 
 
