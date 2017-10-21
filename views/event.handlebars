@@ -17,20 +17,19 @@
 	      <p><span class=>Location:</span> {{key.event_location}}</p>
 	      <p><span class=>Description:</span> {{key.event_description}}</p>
 	      <p><span class=>Event Keywords:</span> {{key.event_keyword1}} {{key.event_keyword2}} {{key.event_keyword3}}</p>
-	 	 </div>
-	 	 <div class="container" id="eventGuests">
-	 	 <p>Guest information goes here{{key.Users}}</p>
-	 	 </div>
-<ul>
-  {{#each key.Users}}
-    <li>
-      <p>Name: {{first_name}} {{last_name}}</p>
-      <p>email: {{email}}</p>
-      <p>LinkedIn: <a href="{{profile_url}}">Click Here</a></p>
-    </li>
-  {{/each}}
-</ul>
-
+	 	</div>
+	 	<div class="container" id="eventGuests">
+			<ul>
+			  {{#each key.Users}}
+			    <li>
+			      <img src="{{picture}}" id="#linkedInPic">
+			      Name: {{first_name}} {{last_name}}
+			      LinkedIn: <a href="{{profile_url}}">Click Here</a>
+			    </li>
+			  {{/each}}
+			</ul>
+			{{!-- <img src="https://media.licdn.com/mpr/mprx/0_YbtE9keaIn5jsJkyj_6oOFcamnXy0Ze3BbEEKKffaQJjsenuO_6kOnmau8qTMIVrq96kg1TmbKqgyy3yAqBnOK8CGKqpyy-htqBWzlv7dl3KnEdyO53FvLUYCLa2zy5ARB1Qt78VxYh" width="100px" height="100px"> --}}
+		</div>
 
 	  	{{!-- </li> --}}
 	  {{!-- {{/each}} --}}

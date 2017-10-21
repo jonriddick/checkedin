@@ -22,7 +22,10 @@ module.exports = function(app, passport) {
 	  	console.log(req.user._json.publicProfileUrl)
 	  	console.log(req.headers.referer);
 
-	  	
+
+	  	var referer = req.headers.referer
+	  	var eventName = referer.substr(referer.lastIndexOf('/') + 1);
+	    
 	    db.User.create(
 	    	{
 		    	linkedin_id: req.user.id,
@@ -31,11 +34,11 @@ module.exports = function(app, passport) {
 		    	last_name: req.user.name.familyName,
 		    	picture: req.user.photos[0].value,
 		    	email: req.user.emails[0].value,
-		    	event_url: req.headers.referer
+		    	event_url: eventName
 	   		 }
 
 		).then(function(dbUser) {
-      		res.redirect('/event');
+      		res.redirect(req.headers.referer);
     	});
     
   	});
