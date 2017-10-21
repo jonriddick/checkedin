@@ -14,7 +14,6 @@ module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-
 	// Serve index.handlebars to the root route.
 	app.get("/index", function(req, res) {
 	  res.render("index", { });
@@ -38,14 +37,7 @@ module.exports = function(app) {
 	  res.render("event", { });
 	});
 
-	// app.post("/checkin", function(req, res) {
-	//   res.render("index", { });
-	// });
 
-
-	// app.get("/event", function(req, res) {
-	//   res.render("event", {eventName});
- //    });
 
 	var eventInfo = function(req, res) {
 		db.Event.findOne({
@@ -57,71 +49,30 @@ module.exports = function(app) {
 	}
 
 	app.get("/event/:eventName", function(req, res) {
-		var dbQuery = "SELECT * FROM users";
+		//var dbQuery = "SELECT * FROM users where event_url = req.params";
 
-
+		// This one is the good one!! :)
 		db.Event.findOne({
 			where: {
 				sanitized_event_name: req.params.eventName
 			},
 				include: [db.User]
 		}).then(function(eventData){
-	         res.render("event", { key: eventData });		
+				console.log("**************");
+				console.log(eventData.Users);
+				console.log("**************");
+				//console.log(eventData.Users[1]);
+				console.log("**************");
+	 		  res.render("event", { key: eventData });		
 		});
 
-		
+		// db.User.findAll({
+		// 	where: {
+		// 		event_url: req.params.eventName
+		// 	},
+		// 	// 	include: [db.User]
+		// }).then(function(eventData){
+	 //         res.render("event", { key: eventData });		
+		// });
 	});
-
-	// app.get("/event/:eventName", function(req, res) {
-	// 	db.Event.findOne({
-	// 		where: {
-	// 			sanitized_event_name: req.params.eventName
-	// 		}
-	// 	}).then(function(event){
-	// 		db.User.findAll({
-	// 			where: {
-	// 				eventId: event.
-	// 			}
-	//          res.render("event", { key: event });		
-	// 	});
-
-		
-	// });
-
-	// app.get("/event/:eventName", function(req, res) {
-	// 	db.Event.findOne({
-	// 		where: {
-	// 			sanitized_event_name: req.params.eventName
-	// 		}
-	// 	}),
-	// 	db.User.findAll({
-	// 			where: {
-	// 				eventId: 1
-	// 			}
-	// 	then(function(data){
-			
-	//          res.render("event", { key: data });		
-	// 	});
-
-		
-	// });
-
-
-	
-
-	// app.get("/api/*", function(req, res) {
-	//     res.render("index", { });
-	// });
 }
-
-// app.delete("/api/todos/:id", function(req, res) {
-//     // We just have to specify which todo we want to destroy with "where"
-//     db.Todo.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function(dbTodo) {
-//       res.json(dbTodo);
-//     });
-
-//   });

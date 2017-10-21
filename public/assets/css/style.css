@@ -15,10 +15,24 @@
 
 #eventInfo {
     background-color: #E8E8E8;
-    font-size: 20px;
+    font-size: 16px;
     width: 50%;
     min-width: 400px;
-    text-align: center;
+    /*text-align: center;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#eventGuests {
+    background-color: grey;
+    font-size: 16px;
+    width: 50%;
+    min-width: 400px;
+    /*text-align: center;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .container:before{
@@ -67,6 +81,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-bottom: 50px;
 }
 
 #aboutUs{

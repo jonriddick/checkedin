@@ -13,14 +13,25 @@
 	  {{!-- {{#each guests}} --}}
 	  	{{!-- <li> --}}
 		<div class="container" id="eventInfo">
+	  	  <p><span class=>Hosted by:</span> {{key.event_host}}</p>
+	      <p><span class=>Location:</span> {{key.event_location}}</p>
+	      <p><span class=>Description:</span> {{key.event_description}}</p>
+	      <p><span class=>Event Keywords:</span> {{key.event_keyword1}} {{key.event_keyword2}} {{key.event_keyword3}}</p>
+	 	 </div>
+	 	 <div class="container" id="eventGuests">
+	 	 <p>Guest information goes here{{key.Users}}</p>
+	 	 </div>
+<ul>
+  {{#each key.Users}}
+    <li>
+      <p>Name: {{first_name}} {{last_name}}</p>
+      <p>email: {{email}}</p>
+      <p>LinkedIn: <a href="{{profile_url}}">Click Here</a></p>
+    </li>
+  {{/each}}
+</ul>
 
-	  	  <p><span class=>Event Host:</span> {{key.event_host}}</p>
-	      <p><span class=>Event Location:</span> {{key.event_location}}</p>
-	      <p><span class=>Event Description:</span> {{key.event_description}}</p>
-	      <p><span class=>Event Keyword1:</span> {{key.event_keyword1}}</p>
-	      <p><span class=>Event Keyword2:</span> {{key.event_keyword2}}</p>
-	      <p><span class=>Event Keyword3:</span> {{key.event_keyword3}}</p>
-	  </div>
+
 	  	{{!-- </li> --}}
 	  {{!-- {{/each}} --}}
 	{{!-- </ul> --}}

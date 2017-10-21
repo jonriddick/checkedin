@@ -54,8 +54,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function(models) {
-    // We're saying that a User should belong to an Author
-    // A User can't be created without an Author due to the foreign key constraint
+    // We're saying that a User should belong to an Event
+    // A User can't be created without an Event due to the foreign key constraint
     User.belongsTo(models.Event, {
       foreignKey: {
         allowNull: false

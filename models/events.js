@@ -56,9 +56,11 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Event.associate = function(models) {
-    // Associating Event with Posts
-    // When an Event is deleted, also delete any associated Posts
-    Event.hasMany(models.User, {});
+    // Associating Event with User
+    // When an Event is deleted, also delete any associated users who went to that event
+    Event.hasMany(models.User, {
+      //onDelete: "cascade"
+    });
   };
 
   return Event;
