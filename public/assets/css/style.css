@@ -1,7 +1,35 @@
+#connectBtn {
+    width: 100px;
+}
+
+#faq {
+    text-align: center;
+    font-size: 25px;
+}
+#about {
+    margin-right: 20px;
+}
+
 #linkedInPic {
     width: 100px;
     height: 100px;
-    float: left;
+    margin-bottom: 15px;
+    /*float: left;*/
+    /*display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;*/
+}
+th{
+    text-align: center;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 150px;
+}
+td{
+    text-align: center;
+    font-size: 23px;
+ 
 }
 
 #eventCheckins {
@@ -31,7 +59,7 @@
 }
 
 #eventGuests {
-    background-color: grey;
+    background-color: #E8E8E8;
     font-size: 16px;
     width: 50%;
     min-width: 400px;
@@ -42,6 +70,9 @@
 }
 
 .container:before{
+    display: none;
+}
+.container:after{
     display: none;
 }
 
@@ -92,7 +123,12 @@ input {
 
 #aboutUs{
     text-align: left;
+    font-size: 20px;
 }
+
+/*#aboutUs-Area {
+    font-size: 22px;
+}*/
 
 #names{
 
@@ -101,7 +137,7 @@ input {
 #ourPics{
     float: left;
     margin: 0 10px 10px 10px;
-    width: 100px;
+    width: 150px;
 
 }
 
@@ -182,45 +218,6 @@ body {
     justify-content: space-around;
 }
 
-.description{
-    margin-right: 5px;
-    margin-left: 2px;
-    margin-top: 2px;
-    line-height: 2;
-    color: black;
-    font-size: 16px;
-}
 
-.menu-section {
-    width: 98%;
-}
 
-.burger-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
 
-.eaten-burger {
-    display:flex;
-    justify-content: center;
-}
-
-.eat-burger {
-    display: flex;
-    justify-content: center;
-}
-
-.burger-create {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-}
-
-.create-btn {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}

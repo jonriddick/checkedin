@@ -25,7 +25,11 @@ module.exports = function(app) {
 
 	// Serve about.handlebars to the root route.
 	app.get("/about", function(req, res) {
-	  res.render("about", { });
+	  res.render("about");
+	});
+
+	app.get("/faq", function(req, res) {
+	  res.render("faq");
 	});
 
 	app.get("/thankyou", function(req, res) {

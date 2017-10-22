@@ -1,39 +1,37 @@
 <div class="placeHolder container" id="eventName">{{key.event_name}}
 </div>
-<div id="chkbtncont" class="container">
-    
-<!-- CheckIn Button -->
-    <a class="btn btn-primary btn-lg btn-block" href="/auth/linkedin" id="submit2">Get CheckedIn</a>
 
+
+<div class="container" id="eventInfo">
+  <p><span class=>Hosted by:</span> {{key.event_host}}</p>
+  <p><span class=>Location:</span> {{key.event_location}}</p>
+  <p><span class=>Description:</span> {{key.event_description}}</p>
+  <p><span class=>Event Keywords:</span> {{key.event_keyword1}} {{key.event_keyword2}} {{key.event_keyword3}}</p>
+</div>    
+<!-- CheckIn Button -->
+<div id="chkbtncont" class="container">
+    <a class="btn btn-primary btn-lg btn-block" href="/auth/linkedin" id="submit2">Get CheckedIn</a>
 </div>
 
 
-{{!-- <div class="container" id="eventCheckins">Checkins go here.(Placeholder Text) --}}
-	{{!-- <ul> --}}
-	  {{!-- {{#each guests}} --}}
-	  	{{!-- <li> --}}
-		<div class="container" id="eventInfo">
-	  	  <p><span class=>Hosted by:</span> {{key.event_host}}</p>
-	      <p><span class=>Location:</span> {{key.event_location}}</p>
-	      <p><span class=>Description:</span> {{key.event_description}}</p>
-	      <p><span class=>Event Keywords:</span> {{key.event_keyword1}} {{key.event_keyword2}} {{key.event_keyword3}}</p>
-	 	</div>
-	 	<div class="container" id="eventGuests">
-			<ul>
-			  {{#each key.Users}}
-			    <li>
-			      <img src="{{picture}}" id="#linkedInPic">
-			      Name: {{first_name}} {{last_name}}
-			      LinkedIn: <a href="{{profile_url}}">Click Here</a>
-			    </li>
-			  {{/each}}
-			</ul>
-			{{!-- <img src="https://media.licdn.com/mpr/mprx/0_YbtE9keaIn5jsJkyj_6oOFcamnXy0Ze3BbEEKKffaQJjsenuO_6kOnmau8qTMIVrq96kg1TmbKqgyy3yAqBnOK8CGKqpyy-htqBWzlv7dl3KnEdyO53FvLUYCLa2zy5ARB1Qt78VxYh" width="100px" height="100px"> --}}
-		</div>
-
-	  	{{!-- </li> --}}
-	  {{!-- {{/each}} --}}
-	{{!-- </ul> --}}
-{{!-- </div> --}}
+ 	<div class="container" id="eventGuests">
+		
+		<table style="width=100%">
+			<tr>
+				<th>Profile Pic</th>
+				<th>Profile Info</th>
+				<th>LinkedIn</th>
+			</tr>
+		  {{#each key.Users}}
+		    <tr>
+		      <td><img src="{{picture}}" id="linkedInPic"></td>
+		      <td>{{first_name}} {{last_name}}</td>
+		      <td><button type="button" href="{{profile_url}}" target="_blank" class="btn btn-primary" id="connectBtn">Connect</button></td>
+		      {{!-- <td><a href="{{profile_url}}" target="_blank">Connect</a></td> --}}
+		    </tr>
+		    
+		  {{/each}}
+		</table>
 
 
+	</div>  	
