@@ -80,16 +80,16 @@ var mysql = require("mysql");
 var connection;
 
 
-// if (process.env.JAWSDB_URL) {
-//   connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
-//   connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "root",
-//     database: "checkedin_db"
-//   });
-// };
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root",
+    database: "checkedin_db"
+  });
+};
 
 // connection.connect(function(err) {
 //   if (err) {
@@ -111,5 +111,5 @@ db.sequelize.sync({ force: false }).then(function() {
 
 
 
-// connection.connect();
-// module.exports = connection;
+connection.connect();
+module.exports = connection;
