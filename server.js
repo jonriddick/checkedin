@@ -86,7 +86,7 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "root",
+    password: "Sundrop7@",
     database: "checkedin_db"
   });
 };
