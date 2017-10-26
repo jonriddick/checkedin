@@ -30,7 +30,7 @@ app.set("view engine", "handlebars");
 
 var passport = require("passport");
 var session = require("express-session");
-var config = require('./config/config');
+var config = require('./config/config.js');
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -39,6 +39,8 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
+
+console.log(config.LINKEDIN_CLIENT_ID);
 
 passport.use(new LinkedInStrategy({
     clientID:     config.LINKEDIN_CLIENT_ID,
