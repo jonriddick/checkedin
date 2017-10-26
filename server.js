@@ -87,7 +87,7 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "Sundrop7@",
+    password: "root",
     database: "checkedin_db"
   });
 };
@@ -104,7 +104,7 @@ if (process.env.JAWSDB_URL) {
 
 
 
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
