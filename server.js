@@ -39,9 +39,7 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
-console.log("------");
 
-console.log(config.LINKEDIN_CLIENT_ID);
 
 passport.use(new LinkedInStrategy({
     clientID:     process.env.LINKEDIN_CLIENT_ID,
