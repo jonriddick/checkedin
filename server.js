@@ -30,7 +30,7 @@ app.set("view engine", "handlebars");
 
 var passport = require("passport");
 var session = require("express-session");
-var config = require("./config/linkedin");
+//var config = require("./config/linkedin");
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -47,7 +47,7 @@ passport.use(new LinkedInStrategy({
     clientID:     process.env.LINKEDIN_CLIENT_ID,
     clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     // callbackURL:  "http://localhost:3000/auth/linkedin/callback",
-    callbackURL: config.CALLBACKURL,
+    callbackURL: process.env.CALLBACKURL,
     scope:        [ 'r_basicprofile', 'r_emailaddress'],
     profileFields: ['id', 'first-name', 'last-name', 'email-address', 'public-profile-url', 'picture-url'],
     passReqToCallback: true
