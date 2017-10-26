@@ -30,7 +30,7 @@ app.set("view engine", "handlebars");
 
 var passport = require("passport");
 var session = require("express-session");
-var config = require('./config/config.js');
+var config = require("./config/linkedin");
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -39,12 +39,13 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
+console.log("------");
 
 console.log(config.LINKEDIN_CLIENT_ID);
 
 passport.use(new LinkedInStrategy({
-    clientID:     config.LINKEDIN_CLIENT_ID,
-    clientSecret: config.LINKEDIN_CLIENT_SECRET,
+    clientID:     process.env.LINKEDIN_CLIENT_ID,
+    clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     // callbackURL:  "http://localhost:3000/auth/linkedin/callback",
     callbackURL: config.CALLBACKURL,
     scope:        [ 'r_basicprofile', 'r_emailaddress'],
