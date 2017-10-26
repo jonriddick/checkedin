@@ -25,6 +25,7 @@ module.exports = function(app, passport) {
 
 	  	var referer = req.headers.referer
 	  	var eventName = referer.substr(referer.lastIndexOf('/') + 1);
+	  	//referrer.Substring(referrer.Substring(0, referrer.LastIndexOf("/")).LastIndexOf("/") + 1);
 	    
 	    db.User.create(
 	    	{
