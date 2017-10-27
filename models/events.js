@@ -54,11 +54,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Event.associate = function(models) {
-    // Associating Event with User
-    // When an Event is deleted, also delete any associated users who went to that event
     Event.hasMany(models.User, {
-      //foreignKey: 'event_url', sourceKey: 'sanitized_event_name'
-      //onDelete: "cascade"
+    //Comment next line out for Heroku push  
+     foreignKey: 'event_url', sourceKey: 'sanitized_event_name'
     });
   };
 

@@ -12,16 +12,20 @@ module.exports = function(app, passport) {
 	app.get('/auth/linkedin/callback',
 	  passport.authenticate('linkedin', { failureRedirect: '/login' }),
 	  function(req, res) {
-	  	console.log({user: req.user});
-	  	console.log(req.user.id);
-	  	console.log(req.user.name.givenName);
-	  	console.log(req.user.name.familyName);
-	  	console.log(req.user.emails[0].value);
-	  	console.log(req.user.photos[0].value);
-	  	console.log(req.user._json.emailAddress);
-	  	console.log(req.user._json.publicProfileUrl)
-	  	console.log(req.headers.referer);
-
+	  	//console.log({user: req.user});
+	  	console.log("********************")
+	  	console.log("********************")
+	  	console.log("id" + req.user.id);
+	  	console.log("first" + req.user.name.givenName);
+	  	console.log("last" + req.user.name.familyName);
+	  	console.log("email" + req.user.emails[0].value);
+	  	console.log("photo" + req.user.photos[0].value);
+	  	console.log("email" + req.user._json.emailAddress);
+	  	console.log("profile" + req.user._json.publicProfileUrl)
+	  	console.log("referer" + req.headers.referer);
+	  	console.log("********************")
+	  	console.log("********************")
+	  	
 
 	  	var referer = req.headers.referer
 	  	var eventName = referer.substr(referer.lastIndexOf('/') + 1);
@@ -37,15 +41,8 @@ module.exports = function(app, passport) {
 		    	email: req.user.emails[0].value,
 		    	event_url: eventName
 	   		 }
-
 		).then(function(dbUser) {
       		res.redirect(req.headers.referer);
     	});
-    
   	});
-
-	// app.get('/auth/linkedin/callback',
-	//   passport.authenticate('linkedin', { failureRedirect: '/login' }),
-	//   function(req, res) {
-	//   	res.redirect('/');
-  	};
+};

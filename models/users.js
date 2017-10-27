@@ -54,10 +54,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function(models) {
-    // We're saying that a User should belong to an Event
-    // A User can't be created without an Event due to the foreign key constraint
     User.belongsTo(models.Event, {
-      //foreignKey: 'event_url', targetKey: 'sanitized_event_name'
+    //Comment next line out for Heroku push  
+    foreignKey: 'event_url', targetKey: 'sanitized_event_name'
     });
   };
 

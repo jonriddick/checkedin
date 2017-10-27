@@ -36,7 +36,6 @@ module.exports = function(app) {
 	  res.render("thankyou", { });
 	});
 
-
 	app.get("/event", function(req, res) {
 	  res.render("event", { });
 	});
@@ -49,7 +48,6 @@ module.exports = function(app) {
 				sanitized_event_name: req.params.eventName
 			}
 		});
-
 	}
 
 	app.get("/event/:eventName", function(req, res) {
@@ -69,14 +67,5 @@ module.exports = function(app) {
 				console.log("**************");
 	 		  res.render("event", { key: eventData });		
 		});
-
-		// db.User.findAll({
-		// 	where: {
-		// 		event_url: req.params.eventName
-		// 	},
-		// 	// 	include: [db.User]
-		// }).then(function(eventData){
-	 //         res.render("event", { key: eventData });		
-		// });
 	});
 }
