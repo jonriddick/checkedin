@@ -61,7 +61,7 @@ module.exports = function(app) {
 				include: [db.User]
 		}).then(function(eventData){
 				console.log("**************");
-				console.log(eventData.Users);
+				//console.log(eventData.Users);
 				console.log("**************");
 				//console.log(eventData.Users[1]);
 				console.log("**************");
