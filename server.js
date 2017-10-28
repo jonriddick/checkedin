@@ -4,7 +4,7 @@ var Sequelize = require('sequelize');
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-var eventArray = require('seeds.sql');
+var eventArray = require('./db/seeds.sql');
 
 var app = express();
 var PORT = process.env.PORT || 3300;
