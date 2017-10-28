@@ -3,13 +3,21 @@ var db = require("../models");
 module.exports = function(app, passport) {
 
 	//var eventNameURL = req.query.state;
+	
+	// ***This kind of works***
+	// app.get('/auth/linkedin',
+	//   passport.authenticate('linkedin', { state: sleepyDogs}),
+	//   function(req, res){
+	//     // The request will be redirected to LinkedIn for authentication, so this
+	//     // function will not be called.
+	// });
 
-	app.get('/auth/linkedin',
-	  passport.authenticate('linkedin', { state: 'sleepydogs'}),
-	  function(req, res){
-	    // The request will be redirected to LinkedIn for authentication, so this
-	    // function will not be called.
-	});
+	app.get('/auth/linkedin/:event',function(req, res){
+		//var sleepyDogs = req.params.event
+	    passport.authenticate('linkedin', { state: req.params.event}),
+	}
+	 
+	);
 
 	app.get('/auth/linkedin/callback',
 	  passport.authenticate('linkedin', { failureRedirect: '/login' }),
