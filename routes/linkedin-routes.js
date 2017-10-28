@@ -14,10 +14,8 @@ module.exports = function(app, passport) {
 
 	app.get('/auth/linkedin/:event',function(req, res){
 		//var sleepyDogs = req.params.event
-	    passport.authenticate('linkedin', { state: req.params.event}),
-	}
-	 
-	);
+	    passport.authenticate('linkedin', { state: req.params.event})
+	});
 
 	app.get('/auth/linkedin/callback',
 	  passport.authenticate('linkedin', { failureRedirect: '/login' }),
