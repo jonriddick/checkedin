@@ -53,7 +53,7 @@ module.exports = function(app) {
 
       // Then display the JSON for ONLY that character.
       // (Note how we're using the ORM here to run our searches)
-      db.Event.findOne({
+      db.Event.findAll({
         where: {
           event_host: req.params.host
         }
@@ -73,6 +73,35 @@ module.exports = function(app) {
     }
 
   });
+
+    app.get("/api/users/event/:eventName?", function(req, res) {
+
+    // If the user provides a specific character in the URL...
+    if (req.params.eventName) {
+
+      // Then display the JSON for ONLY that character.
+      // (Note how we're using the ORM here to run our searches)
+      db.User.findAll({
+        where: {
+          event_name: req.params.eventName
+        }
+      }).then(function(result) {
+        return res.json(result);
+      });
+    }
+
+    // Otherwise...
+    else {
+      // Otherwise display the data for all of the characters.
+      // (Note how we're using Sequelize here to run our searches)
+      db.User.findAll({})
+        .then(function(result) {
+          return res.json(result);
+        });
+    }
+
+  });
+
 
 //
 //

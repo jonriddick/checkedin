@@ -42,7 +42,9 @@ module.exports = function(app, passport) {
 		    	event_url: eventName
 	   		 }
 		).then(function(dbUser) {
-      		res.redirect(req.headers.referer);
+      		// res.redirect(req.headers.referer);
+      		res.redirect('https://murmuring-hollows-12285.herokuapp.com/event/' + eventName);
+
     	});
   	});
 };

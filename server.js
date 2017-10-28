@@ -4,7 +4,7 @@ var Sequelize = require('sequelize');
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-
+var eventArray = require('seeds.sql');
 
 var app = express();
 var PORT = process.env.PORT || 3300;
@@ -105,6 +105,10 @@ if (process.env.JAWSDB_URL) {
 
 
 db.sequelize.sync({ force: false }).then(function() {
+ // db.sequelize.getQueryInterface().bulkInsert('events', eventArray)
+ // db.sequelize.getQueryInterface().bulkInsert('users', usersArrayName)
+
+
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
