@@ -2,6 +2,8 @@
 var db = require("../models");
 module.exports = function(app, passport) {
 
+	//var eventNameURL = req.query.state;
+
 	app.get('/auth/linkedin',
 	  passport.authenticate('linkedin', { state: 'sleepydogs'}),
 	  function(req, res){
@@ -15,14 +17,15 @@ module.exports = function(app, passport) {
 	  	//console.log({user: req.user});
 	  	console.log("********************")
 	  	console.log("********************")
-	  	console.log("id" + req.user.id);
+	  	//console.log("id" + req.user.id);
 	  	console.log("first" + req.user.name.givenName);
 	  	console.log("last" + req.user.name.familyName);
-	  	console.log("email" + req.user.emails[0].value);
-	  	console.log("photo" + req.user.photos[0].value);
-	  	console.log("email" + req.user._json.emailAddress);
-	  	console.log("profile" + req.user._json.publicProfileUrl)
-	  	console.log("referer" + req.headers.referer);
+	  	console.log("state" + req.query.state)
+	  	// console.log("email" + req.user.emails[0].value);
+	  	// console.log("photo" + req.user.photos[0].value);
+	  	// console.log("email" + req.user._json.emailAddress);
+	  	// console.log("profile" + req.user._json.publicProfileUrl)
+	  	// console.log("referer" + req.headers.referer);
 	  	console.log("********************")
 	  	console.log("********************")
 	  	
@@ -34,9 +37,10 @@ module.exports = function(app, passport) {
 	  	console.log(req);
 	  	console.log("********");
 
-	  	var eventName = referer.substr(referer.lastIndexOf('/') + 1);
+	  	//var eventName = referer.substr(referer.lastIndexOf('/') + 1);
 	  	//referrer.Substring(referrer.Substring(0, referrer.LastIndexOf("/")).LastIndexOf("/") + 1);
-	    
+	    var eventName = req.query.state
+
 	    db.User.create(
 	    	{
 		    	linkedin_id: req.user.id,
