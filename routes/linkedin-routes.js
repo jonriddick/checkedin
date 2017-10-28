@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app, passport) {
 
 	app.get('/auth/linkedin',
-	  passport.authenticate('linkedin', { state: 'SOME STATE'  }),
+	  passport.authenticate('linkedin', { state: 'SOME STATE', eventName: 'sleepydogs' }),
 	  function(req, res){
 	    // The request will be redirected to LinkedIn for authentication, so this
 	    // function will not be called.
@@ -27,7 +27,13 @@ module.exports = function(app, passport) {
 	  	console.log("********************")
 	  	
 
-	  	var referer = req.headers.referer
+	  	var referer = req.headers.referer;
+	  	console.log("********");
+	  	console.log(referer);
+	  	console.log("********");
+	  	console.log(req);
+	  	console.log("********");
+
 	  	var eventName = referer.substr(referer.lastIndexOf('/') + 1);
 	  	//referrer.Substring(referrer.Substring(0, referrer.LastIndexOf("/")).LastIndexOf("/") + 1);
 	    
