@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app, passport) {
 
 	app.get('/auth/linkedin',
-	  passport.authenticate('linkedin', { state: 'SOME STATE', eventName: 'sleepydogs' }),
+	  passport.authenticate('linkedin', { state: 'sleepydogs'}),
 	  function(req, res){
 	    // The request will be redirected to LinkedIn for authentication, so this
 	    // function will not be called.
